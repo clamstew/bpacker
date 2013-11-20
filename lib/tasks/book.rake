@@ -16,13 +16,12 @@ task :scrape_book_data => :environment do
     price = page.at_css(".bb_price").text[/[0-9\.\S0-9]+/]
 
     #Get the book shipping weight
-    # @TODO
-    
+    shipping_weight = page.at_css("#productDetailsTable li:nth-child(7)").text[/[0-9\.]+/]   
 
     #Get the book isbn-10
-    # @TODO
+    isbn10 = page.at_css("#productDetailsTable li:nth-child(4)").text
 
-    book.update_attributes(title: title, author: author, price: price, shipping_weight: shipping_weight)
+    book.update_attributes(title: title, author: author, price: price, shipping_weight: shipping_weight, isbn10: isbn10)
 
   end
 end

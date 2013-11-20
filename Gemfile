@@ -37,6 +37,8 @@ gem 'pg'
 
 # Use Nokogiri to extract data from books
 gem 'nokogiri'
+
+gem 'hirb'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -1,6 +1,6 @@
 desc 'Scrape Book Data'
 
-task :scrape_book_data => environment do 
+task :scrape_book_data => :environment do 
   require 'nokogiri'
   Book.all.each do |book|
     page = Nokogiri::HTML(File.read("data/#{book.book_number}"))
@@ -16,5 +16,12 @@ task :scrape_book_data => environment do
 
     #Get the book shipping weight
     
+    
 
     #Get the book isbn-10
+    
+
+    book.update_attributes(title: title, author: author, price: price, shipping_weight: shipping_weight, isbn10: isbn10)
+
+  end
+end
